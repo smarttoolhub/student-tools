@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Tools Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <h1>Student Tools Hub</h1>
+
+
+    <!-- AGE CALCULATOR -->
+    <div class="tool-box">
+
+        <h2>Age Calculator</h2>
+
+        <input type="date" id="dob">
+
+        <button onclick="calculateAge()">
+            Calculate Age
+        </button>
+
+        <p id="ageResult"></p>
+
+    </div>
+
+
+    <!-- PERCENTAGE CALCULATOR -->
+    <div class="tool-box">
+
+        <h2>Percentage Calculator</h2>
+
+        <input type="number" id="obtainedMarks" placeholder="Obtained Marks">
+
+        <input type="number" id="totalMarks" placeholder="Total Marks">
+
+        <button onclick="calculatePercentage()">
+            Calculate Percentage
+        </button>
+
+        <p id="percentageResult"></p>
+
+    </div>
+
+
+    <!-- PASSWORD GENERATOR -->
+    <div class="tool-box">
+
+        <h2>Password Generator</h2>
+
+        <button onclick="generatePassword()">
+            Generate Password
+        </button>
+
+        <p id="passwordResult"></p>
+
+    </div>
+
+
+    <!-- BMI CALCULATOR -->
+    <div class="tool-box">
+
+        <h2>BMI Calculator</h2>
+
+        <input type="number" id="weight" placeholder="Weight in KG">
+
+        <input type="number" id="height" placeholder="Height in meters">
+
+        <button onclick="calculateBMI()">
+            Calculate BMI
+        </button>
+
+        <p id="bmiResult"></p>
+
+    </div>
+
+
+    <!-- TEXT COUNTER -->
+    <div class="tool-box">
+
+        <h2>Text Counter</h2>
+
+        <textarea id="textInput" rows="5" placeholder="Type text here"></textarea>
+
+        <button onclick="countText()">
+            Count Text
+        </button>
+
+        <p id="textResult"></p>
+
+    </div>
+
+
+    <!-- UNIT CONVERTER -->
+    <div class="tool-box">
+
+        <h2>Kilometer to Meter Converter</h2>
+
+        <input type="number" id="kmInput" placeholder="Enter kilometers">
+
+        <button onclick="convertKM()">
+            Convert
+        </button>
+
+        <p id="kmResult"></p>
+
+    </div>
+
+
+    <!-- CGPA CALCULATOR -->
+    <div class="tool-box">
+
+        <h2>CGPA Calculator</h2>
+
+        <input type="number" id="cgpaInput" placeholder="Enter GPA">
+
+        <button onclick="calculateCGPA()">
+            Calculate Percentage
+        </button>
+
+        <p id="cgpaResult"></p>
+
+    </div>
+
+
+    <!-- QR CODE GENERATOR -->
+    <div class="tool-box">
+
+        <h2>QR Code Generator</h2>
+
+        <input type="text" id="qrInput" placeholder="Enter text or link">
+
+        <button onclick="generateQR()">
+            Generate QR Code
+        </button>
+
+        <div id="qrCode"></div>
+
+    </div>
+
+
+    <!-- QR CODE LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- MAIN JAVASCRIPT FILE -->
+    <script src="script.js"></script>
+
+</body>
+</html>
