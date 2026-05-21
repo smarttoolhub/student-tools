@@ -1,156 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Student Tools Hub</title>
-
+    <title>Premium Student Tools Hub</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
-    <h1>Student Tools Hub</h1>
-
-
-    <!-- AGE CALCULATOR -->
-    <div class="tool-box">
-
-        <h2>Age Calculator</h2>
-
-        <input type="date" id="dob">
-
-        <button onclick="calculateAge()">
-            Calculate Age
-        </button>
-
-        <p id="ageResult"></p>
-
+    <!-- Cyber Space Background Effect -->
+    <div class="bg-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
     </div>
 
+    <header class="main-header">
+        <h1>🛠️ STUDENT TOOLS HUB</h1>
+        <p>Your Premium All-in-One Productivity Dashboard</p>
+    </header>
 
-    <!-- PERCENTAGE CALCULATOR -->
-    <div class="tool-box">
+    <main class="dashboard-grid">
 
-        <h2>Percentage Calculator</h2>
+        <!-- AGE CALCULATOR (Purple Theme) -->
+        <section class="tool-box purple-glow">
+            <div class="card-header">
+                <span class="icon">📅</span>
+                <h2>AGE CALCULATOR</h2>
+            </div>
+            <div class="input-group">
+                <label>DOB</label>
+                <input type="date" id="dob" value="1998-07-07">
+            </div>
+            <button onclick="calculateAge()">Calculate</button>
+            <div class="result-wrapper">
+                <p>Output result: <span id="ageResult" class="highlight">28 years old</span></p>
+            </div>
+        </section>
 
-        <input type="number" id="obtainedMarks" placeholder="Obtained Marks">
+        <!-- PERCENTAGE CALCULATOR (Blue Theme) -->
+        <section class="tool-box blue-glow">
+            <div class="card-header">
+                <span class="icon">📊</span>
+                <h2>PERCENTAGE CALCULATOR</h2>
+            </div>
+            <div class="input-group">
+                <label>Obtained</label>
+                <input type="number" id="obtainedMarks" value="40" placeholder="0">
+                <label>Total</label>
+                <input type="number" id="totalMarks" value="50" placeholder="0">
+            </div>
+            <button onclick="calculatePercentage()">Calculate</button>
+            <div class="result-wrapper split-result">
+                <p>Result: <span id="percentageResult" class="highlight">80 %</span></p>
+                <div class="mini-bar-chart">
+                    <span style="height: 40%"></span>
+                    <span style="height: 60%"></span>
+                    <span style="height: 55%"></span>
+                    <span style="height: 80%" class="active"></span>
+                </div>
+            </div>
+        </section>
 
-        <input type="number" id="totalMarks" placeholder="Total Marks">
+        <!-- PASSWORD GENERATOR (Green Theme) -->
+        <section class="tool-box green-glow">
+            <div class="card-header">
+                <span class="icon">🔒</span>
+                <h2>PASSWORD GENERATOR</h2>
+            </div>
+            <div class="input-group">
+                <div class="flex-row">
+                    <label>Length</label>
+                    <span id="lengthVal" class="slider-val">12</span>
+                </div>
+                <input type="range" id="passLength" min="6" max="30" value="12" oninput="document.getElementById('lengthVal').innerText = this.value">
+                
+                <div class="radio-group">
+                    <label>Options:</label>
+                    <label class="radio-label"><input type="radio" name="strength" checked> Strong</label>
+                </div>
+            </div>
+            <button onclick="generatePassword()">Generate</button>
+            <div class="result-wrapper pass-container">
+                <span id="passwordResult" class="code-font text-green">strongPassword*</span>
+                <span class="status-tick">✓</span>
+            </div>
+        </section>
 
-        <button onclick="calculatePercentage()">
-            Calculate Percentage
-        </button>
+        <!-- BMI CALCULATOR (Orange Theme) -->
+        <section class="tool-box orange-glow">
+            <div class="card-header">
+                <span class="icon">⚖️</span>
+                <h2>BMI CALCULATOR</h2>
+            </div>
+            <div class="input-group">
+                <div class="flex-row">
+                    <input type="number" id="weight" value="70" placeholder="Weight (kg)">
+                    <input type="number" id="height" value="175" placeholder="Height (cm)">
+                </div>
+            </div>
+            <button onclick="calculateBMI()">Calculate</button>
+            <div class="result-wrapper">
+                <p id="bmiResult">BMI: <span class="highlight">22.9 (Normal)</span></p>
+                <div class="indicator-bar">
+                    <span class="segment uw"></span>
+                    <span class="segment nw active"></span>
+                    <span class="segment ow"></span>
+                    <span class="segment ob"></span>
+                </div>
+                <div class="indicator-labels">
+                    <span>Underweight</span><span>Normal</span><span>Overweight</span><span>Obese</span>
+                </div>
+            </div>
+        </section>
 
-        <p id="percentageResult"></p>
+        <!-- TEXT COUNTER (Teal Theme) -->
+        <section class="tool-box teal-glow wide-card">
+            <div class="card-header">
+                <span class="icon">📝</span>
+                <h2>TEXT COUNTER</h2>
+            </div>
+            <div class="input-group">
+                <textarea id="textInput" rows="4" placeholder="Enter text here..." oninput="countText()"></textarea>
+            </div>
+            <div class="counter-footer">
+                <div class="indicator-bar small-bar">
+                    <span class="segment nw active" style="width: 35%"></span>
+                </div>
+                <div class="counter-stats">
+                    <span id="charCount">0 Characters</span>
+                    <span id="wordCount">0 Words</span>
+                </div>
+            </div>
+        </section>
 
-    </div>
+        <!-- UNIT CONVERTER (Cyan Theme) -->
+        <section class="tool-box cyan-glow">
+            <div class="card-header">
+                <span class="icon">🔄</span>
+                <h2>UNIT CONVERTER</h2>
+            </div>
+            <div class="input-group dropdown-container">
+                <input type="number" id="kmInput" value="1" placeholder="Value">
+                <div class="flex-row gap-5">
+                    <select id="fromUnit"><option>KM</option></select>
+                    <span class="to-text">to</span>
+                    <select id="toUnit"><option>M</option></select>
+                </div>
+            </div>
+            <button onclick="convertKM()">Calculate</button>
+            <div class="result-wrapper">
+                <p>Output: <span id="kmResult" class="highlight">1000 M</span></p>
+            </div>
+        </section>
 
+        <!-- CGPA CALCULATOR (Pink Theme) -->
+        <section class="tool-box pink-glow">
+            <div class="card-header">
+                <span class="icon">🎓</span>
+                <h2>CGPA TO % CONVERTER</h2>
+            </div>
+            <div class="input-group">
+                <label>CGPA</label>
+                <input type="number" id="cgpaInput" value="8.5" step="0.01" max="10">
+            </div>
+            <button onclick="calculateCGPA()">Calculate</button>
+            <div class="result-wrapper">
+                <p>Final: <span id="cgpaResult" class="highlight text-pink">80.75%</span></p>
+            </div>
+        </section>
 
-    <!-- PASSWORD GENERATOR -->
-    <div class="tool-box">
+        <!-- QR CODE GENERATOR (White/Neon Theme) -->
+        <section class="tool-box white-glow">
+            <div class="card-header">
+                <span class="icon">🔍</span>
+                <h2>QR CODE GENERATOR</h2>
+            </div>
+            <div class="input-group">
+                <input type="text" id="qrInput" placeholder="Enter link or text">
+            </div>
+            <button onclick="generateQR()">Generate</button>
+            <div id="qrCode" class="qr-container"></div>
+        </section>
 
-        <h2>Password Generator</h2>
+    </main>
 
-        <button onclick="generatePassword()">
-            Generate Password
-        </button>
-
-        <p id="passwordResult"></p>
-
-    </div>
-
-
-    <!-- BMI CALCULATOR -->
-    <div class="tool-box">
-
-        <h2>BMI Calculator</h2>
-
-        <input type="number" id="weight" placeholder="Weight in KG">
-
-        <input type="number" id="height" placeholder="Height in meters">
-
-        <button onclick="calculateBMI()">
-            Calculate BMI
-        </button>
-
-        <p id="bmiResult"></p>
-
-    </div>
-
-
-    <!-- TEXT COUNTER -->
-    <div class="tool-box">
-
-        <h2>Text Counter</h2>
-
-        <textarea id="textInput" rows="5" placeholder="Type text here"></textarea>
-
-        <button onclick="countText()">
-            Count Text
-        </button>
-
-        <p id="textResult"></p>
-
-    </div>
-
-
-    <!-- UNIT CONVERTER -->
-    <div class="tool-box">
-
-        <h2>Kilometer to Meter Converter</h2>
-
-        <input type="number" id="kmInput" placeholder="Enter kilometers">
-
-        <button onclick="convertKM()">
-            Convert
-        </button>
-
-        <p id="kmResult"></p>
-
-    </div>
-
-
-    <!-- CGPA CALCULATOR -->
-    <div class="tool-box">
-
-        <h2>CGPA Calculator</h2>
-
-        <input type="number" id="cgpaInput" placeholder="Enter GPA">
-
-        <button onclick="calculateCGPA()">
-            Calculate Percentage
-        </button>
-
-        <p id="cgpaResult"></p>
-
-    </div>
-
-
-    <!-- QR CODE GENERATOR -->
-    <div class="tool-box">
-
-        <h2>QR Code Generator</h2>
-
-        <input type="text" id="qrInput" placeholder="Enter text or link">
-
-        <button onclick="generateQR()">
-            Generate QR Code
-        </button>
-
-        <div id="qrCode"></div>
-
-    </div>
-
-
-    <!-- QR CODE LIBRARY -->
+    <!-- QR CODE DEPENDENCY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
-    <!-- MAIN JAVASCRIPT FILE -->
     <script src="script.js"></script>
-
 </body>
 </html>
